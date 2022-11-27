@@ -1,0 +1,256 @@
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+  font-family: 'yg-jalnan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*::before,
+*::after {
+   box-sizing: border-box;
+}
+
+body {
+   min-height: 100vh;
+   background-color: #FFFFFF;
+}
+
+.container {
+   max-width: 100rem;
+   margin: 0 auto;
+   padding: 0 2rem 2rem;
+}
+
+.heading {
+   font-family: "Montserrat", Arial, sans-serif;
+   font-size: 4rem;
+   font-weight: 500;
+   line-height: 1.5;
+   text-align: center;
+   padding: 3.5rem 0;
+   color: #1a1a1a;
+}
+
+.heading span {
+   display: block;
+}
+
+.gallery {
+   display: flex;
+   flex-wrap: wrap;
+   /* Compensate for excess margin on outer gallery flex items */
+   margin: -1rem -1rem;
+}
+
+.gallery-item {
+   /* Minimum width of 24rem and grow to fit available space */
+   flex: 1 0 24rem;
+   /* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+   margin: 1rem;
+   box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+   overflow: hidden;
+}
+
+.gallery-image {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   transition: transform 400ms ease-out;
+}
+
+.gallery-image:hover {
+   transform: scale(1.05);
+}
+
+/*
+
+The following rule will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
+
+*/
+
+@supports (display: grid) {
+   .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+      grid-gap: 2rem;
+   }
+
+   .gallery,
+   .gallery-item {
+      margin: 15 20 ;
+   }
+}
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+html, body {
+    overflow-x: hidden;
+    height: 100%;
+}
+body {
+    background: #FFFFFF;
+    padding: 0;
+    margin: 0;
+    font-family: 'Varela Round', sans-serif;
+}
+.main {
+    margin: 0 auto;
+    display: block;
+    height: 100%;
+    margin-top: 60px;
+}
+.mainInner{
+    display: table;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.mainInner div{
+    display:table-cell;
+    vertical-align: middle;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 1.25px;
+}
+/* Modal */
+
+.modal_overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+  }
+  
+  .modal_window {
+    background: white;
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(197, 197, 197, 0.432);
+    width: 80%;
+    height: 60%;
+    position: relative;
+    padding: 10px;
+  }
+  
+  .modal_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 55px;
+  }
+  
+  .modal_title_side{
+    flex: 0 0 40px;
+    text-align: center;
+  }
+  
+  .modal_image_upload{
+  
+    text-align: center;
+    transition: all .15s ease-in-out;
+    height: 80%;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+
+.img_date{
+  font-size:50px;
+  margin-top:60px;
+  margin-bottom: 40px;
+  
+  
+}
+
+.my_gallery_layout{
+  width:100%;
+  height: 150%;
+  /* background-image: linear-gradient(#fbeced, #adcce9); */
+  
+}
+
+.my_gallery_section{
+  padding-left:30px;
+  padding-right:30px;
+  overflow-y: auto;
+  
+}
+
+.photo_grid_container{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 40px;
+  height:auto;
+  text-align: left;
+  grid-gap: 1.16%;
+}
+
+.photo_grid_items{
+  background-size: cover;
+  width: 100%;
+  height:400px;
+  object-fit: cover;
+  transition: transform 400ms ease-out;
+}
+
+.photo_grid_items:hover {
+  transform: scale(1.1);
+}
+
+#tempImage{
+  width: 25rem;
+  height: 25rem;
+  margin-top: 5%;
+}
+
+#filebox{
+  font-family: 'Cafe24Ssurround';
+  font-size:25px;
+  margin-top:10%;
+  margin-left:10%;
+}
+
+
+#landmark_input{
+  margin-top:5%;
+  display:inline-block;
+  font-family:'Cafe24Ssurround';
+}
+
+
+#category_input{
+  margin:5%;
+  display:inline-block;
+  font-family:'Cafe24Ssurround';
+}
+
+.form-selcet{
+  font-size:200px;
+}
+
+#title{
+  font-family: 'Cafe24Ssurround';
+  color:#db545a;
+  text-align : center;
+  font-size:70px;
+}

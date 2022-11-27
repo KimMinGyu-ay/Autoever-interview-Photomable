@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+<head>
+<link rel="stylesheet" href="{% static 'photoguide/assets/css/nicepage.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'photoguide/assets/css/photoguide.css' %}" media="screen">
+<script class="u-script" type="text/javascript" src="{% static 'main/assets/js/jquery.js' %}" defer=""></script>
+<script class="u-script" type="text/javascript" src="{% static 'main/assets/js/nicepage.js' %}" defer=""></script>
+<meta name="generator" content="Nicepage 4.9.5, nicepage.com">
+<link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+<meta name="theme-color" content="#478ac9">
+<meta property="og:title" content="mypage">
+<meta property="og:type" content="website">
+</head>
+  
+
+<body class="u-body">
+    <section class="u-clearfix u-white u-section-1" id="sec-81db">
+        <div class="u-absolute-hcenter u-container-style u-expanded u-gradient u-group u-shape-rectangle u-group-1">
+            <div class="u-container-layout u-container-layout-1">
+            </div>
+        </div>
+        <div>
+            <br><h1 class="display-4" id="title">포토가이드</h1>
+            
+                <div style="text-align: center;display: grid; height:3000px;">
+                    <form method="post" action="photoguide_update/{{loc_id}}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div id="label_input"><br>
+                            <span></span>
+                        </div>                        
+                        <img id="tempImage" src="../../static/photoguide/images/photo-placeholder.png"></a>
+                        <div id="input_layout">
+                            <input type="file" id="file" class="file" name="file" onchange="imageView(this)" style="border-style: none;text-align:center; color: white;font-family: 'Cafe24Ssurround';font-size:40px; margin: 5% -10% -10% 0%;" accept="image/png, image/jpeg" required>
+                        </div>
+                        <div class="item" id="submitButton">
+                            <button style="background-image: linear-gradient(to right, #77aad9, #e68387);
+                            border-style: none;  font-family: 'Cafe24Ssurround';font-size:40px;
+                            color: white;  width:320px; margin-right: -60%; margin-top: 20%;" type="submit" class="btn">유사한 사진 찾기</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+  function imageView(input) {
+      
+        /* Secure Coding */
+        fileName = input.files[0].name
+        if(!fileName.endsWith(".png") && !fileName.endsWith(".jpg") && !fileName.endsWith(".jpeg") && !fileName.endsWith(".PNG") && !fileName.endsWith(".JPG") && !fileName.endsWith(".JPEG")) {         
+        document.getElementById("file").value = "";
+        out.wright("업로드할 수 없는 확장자입니다.")
+        } else {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#tempImage').attr('src', e.target.result)
+                 .width('80%')
+                 .height('auto');
+                }
+    
+            reader.readAsDataURL(input.files[0]);
+            }
+        }
+    }
+
+  const modal = document.getElementById("modal_add_feed");
+    const buttonAddFeed = document.getElementById("add_feed");
+    buttonAddFeed.addEventListener("click", e => {
+        modal.style.display = "flex";
+        document.body.style.overflowY = "hidden";
+    });
+
+</script>
+{% endblock %} 
